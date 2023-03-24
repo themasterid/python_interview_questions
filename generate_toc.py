@@ -91,8 +91,7 @@ def paste_after(delimiter, content, text):
         if line.strip() != delimiter:
             result.append(line)
         else:
-            result.append(f'{delimiter}\n')
-            result.append(f'{content}\n')
+            result.extend((f'{delimiter}\n', f'{content}\n'))
             return '\n'.join(result)
 
     raise ValueError(f"Can't find delimiter '{delimiter}'")
